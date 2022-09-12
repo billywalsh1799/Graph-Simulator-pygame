@@ -1,5 +1,6 @@
 import pygame
 from modules.My_Methods.my_methods import delay
+from modules.assets.colors import *
 
 def mini(path):
     x=list(path.keys())[0]
@@ -23,7 +24,7 @@ def dijkstra(s,d,V,E,win):
             used_edges=set()
             used_vertices=set()
             
-            key.make_green()
+            key.make(green)
             key.draw_vertex(win)
             pygame.display.update()
             delay(1)
@@ -39,7 +40,7 @@ def dijkstra(s,d,V,E,win):
                         tempo=edge
                         used_edges.add(edge)
                         used_vertices.add(v)
-                        edge.make_white()
+                        edge.make(white)
                         edge.draw_edge(win)
                         key.draw_vertex(win)
                         v.draw_vertex(win)
@@ -56,12 +57,12 @@ def dijkstra(s,d,V,E,win):
             delay(1)
             
             for edge in used_edges:
-                edge.make_black()
+                edge.make(black)
                 edge.draw_edge(win)
             for vertex in used_vertices:
-                vertex.make_turqoise()
+                vertex.make(turquoise)
                 vertex.draw_vertex(win)
-            key.make_blue()
+            key.make(light_red)
             key.draw_vertex(win) 
             pygame.display.update()
             if key==d:
@@ -81,13 +82,13 @@ def dijkstra(s,d,V,E,win):
                     tempo=edge
                     used_edges.add(edge)
                     used_vertices.add(v)
-                    edge.make_Periwinkle()
+                    edge.make(Periwinkle)
                     edge.draw_edge(win)
                     
-                    chemin[i-1].make_Periwinkle()
+                    chemin[i-1].make(Periwinkle)
                     chemin[i-1].draw_vertex(win)
                     
-                    chemin[i].make_Periwinkle()
+                    chemin[i].make(Periwinkle)
                     chemin[i].draw_vertex(win)
                     
                     
@@ -96,11 +97,11 @@ def dijkstra(s,d,V,E,win):
                     break
         delay(2)
         for edge in E:
-            edge.make_black()
+            edge.make(black)
             edge.draw_edge(win)
         
         for vertex in V:
-            vertex.make_turqoise()
+            vertex.make(turquoise)
             vertex.draw_vertex(win)
         
         

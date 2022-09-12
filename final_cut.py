@@ -1,5 +1,4 @@
 import pygame
-import time
 from math import*
 from modules.Buttons.button import button
 
@@ -138,7 +137,6 @@ def main():
                 
                 if W[edge].draw_button():
                     W[edge].pressed=not(W[edge].pressed)
-                    print("yes")
                 if W[edge].pressed:
                     for e in W:
                         if e!=edge:
@@ -262,7 +260,7 @@ def main():
                         for vertex in V:
                             if distance(vertex.position,pos[0])<=vertex.radius:
                                 pos[0]=vertex.position
-                                vertex.make_purple()
+                                vertex.make(purple)
                                 vertex.draw_vertex(win)
                                 pygame.display.update()
                                 v1=vertex
@@ -273,13 +271,13 @@ def main():
                         for vertex in V:
                             if distance(vertex.position,pos[1])<=vertex.radius:
                                 pos[1]=vertex.position
-                                vertex.make_Periwinkle()
+                                vertex.make(Periwinkle)
                                 vertex.draw_vertex(win)
                                 pygame.display.update()
                                 v2=vertex
                                 if v1!=v2:
                                     delay(1)
-                                    vertex.make_turqoise()
+                                    vertex.make(turquoise)
                                     vertex.draw_vertex(win)
                                     pygame.display.update()
                                     delay(1)

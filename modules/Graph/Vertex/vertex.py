@@ -20,22 +20,13 @@ class vertex:
         self.neighbors=set()
         self.radius=30
         self.deg=0
-    def make_blue(self):
-        self.color=light_red
-    def make_turqoise(self):
-        self.color=turquoise
-    def make_green(self):
-        self.color=green
         
-    def make_purple(self):
-        self.color=purple
-    def make_Periwinkle(self):
-        self.color=Periwinkle
+    def make(self,c):
+        self.color=c
     
     def draw_vertex(self,win):
         pygame.draw.circle(win,self.color,self.position,self.radius,0)
         draw_text(str(self.id),self.position,black,win)
     def __str__(self):
         return str(self.id)
-    def make(self,c):
-        self.color=c
+    

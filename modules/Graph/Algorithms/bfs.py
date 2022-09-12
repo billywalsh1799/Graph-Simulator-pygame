@@ -16,7 +16,7 @@ def bfs(v1,V,E,win):
     def color_edges(E):
         for edge in E:
             if edge.extents[0].color==light_red and edge.extents[1].color==light_red and unvisited[edge]==0:
-                edge.make_white()
+                edge.make(white)
                 edge.draw_edge(win)
                 edge.extents[0].draw_vertex(win)
                 edge.extents[1].draw_vertex(win)
@@ -29,7 +29,7 @@ def bfs(v1,V,E,win):
                 
     
 
-    v1.make_green()
+    v1.make(green)
     v1.draw_vertex(win)
     pygame.display.update()
     
@@ -38,7 +38,7 @@ def bfs(v1,V,E,win):
     
 
     
-    v1.make_blue()
+    v1.make(light_red)
     v1.draw_vertex(win)
     pygame.display.update()
     
@@ -56,7 +56,7 @@ def bfs(v1,V,E,win):
         visited.add(x)
         temptext(stack,win)
         if self_visited[x]==False:
-            x.make_green()
+            x.make(green)
             x.draw_vertex(win)
             pygame.display.update()
             
@@ -64,7 +64,7 @@ def bfs(v1,V,E,win):
             
 
 
-            x.make_blue()
+            x.make(light_red)
             x.draw_vertex(win)
             
             
@@ -82,10 +82,10 @@ def bfs(v1,V,E,win):
     delay(0.5)
    
     for vertex in V:
-        vertex.make_turqoise()
+        vertex.make(turquoise)
         vertex.draw_vertex(win)
     for edge in E:
-        edge.make_black()
+        edge.make(black)
         edge.draw_edge(win)
     
     pygame.display.update()
