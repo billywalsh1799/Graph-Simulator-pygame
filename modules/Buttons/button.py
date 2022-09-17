@@ -62,3 +62,8 @@ class button():
         self.win.blit(text_img,positions)
         self.text_col=temp
         return action
+    
+    #new method only for directed button
+    
+    def set_text(self,txt):
+        self.text=txt

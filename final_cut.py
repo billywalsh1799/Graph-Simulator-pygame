@@ -12,7 +12,7 @@ from modules.Graph.Algorithms.coloring import COLORSS
 from modules.assets.colors import *
 
 from modules.My_Methods.my_methods import delay
-from modules.My_Math.my_math import distance
+from modules.My_Math.my_math import *
 
 
 
@@ -109,6 +109,25 @@ def main():
         win.fill(beige)
         pygame.draw.line(win,black,(1575,0),(1575,850),3)
         pygame.draw.line(win,black,(0,850),(1575,850),3)
+
+        #rotation test starts
+
+        """ pygame.draw.line(win,black,(111,111),(555,555),3)
+
+        pygame.draw.circle(win,turquoise,(555,555),30,0)
+
+        pygame.draw.circle(win,turquoise,(111,111),30,0)
+
+        c1=((555,555),30)
+        c2=((111,111),30)
+        l=((111,111),(555,555))
+        index=0
+        draw_arrow(c1,l,index,win)
+        draw_arrow(c2,l,1,win) """
+
+        
+        #rotatoin test ends
+
         for but in menu: 
             if but.draw_button():
                 for action in actions:

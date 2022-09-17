@@ -1,5 +1,6 @@
 import pygame
 from modules.assets.colors import *
+from modules.My_Math.my_math import *
 
 
 class edge:
@@ -12,6 +13,9 @@ class edge:
         self.color=c
     def draw_edge(self,win):
         pygame.draw.line(win,self.color,self.position[0],self.position[1],5)
+        c=self.extents[1].position,30
+        l=self.position
+        draw_arrow(c,l,0,win)
     def __str__(self):
         return str(self.extents[0])+"-"+str(self.extents[1])
     

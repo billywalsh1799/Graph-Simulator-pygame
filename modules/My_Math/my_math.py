@@ -1,11 +1,15 @@
 from math import *
+import pygame
+from modules.assets.colors import *
 
 def distance(p1,p2):
     d=(p1[0]-p2[0])**2+(p1[1]-p2[1])**2
     return sqrt(d)
 
 #add line intersectoin and rotation methods
-def line_circle(e,v):
+
+#wrongone
+def line_circle_wrong(e,v):
     #first determine line equation
     x1,y1=e.extents[0].pos
     x2,y2=e.extents[1].pos
@@ -33,11 +37,7 @@ def line_circle(e,v):
 def line_circle(c,l,index):
     #exception horizantl and vertical line
     #if l[0][0]==l[1][0] or l[0][1]==l[1][1]
-    
-    
-    
-    
-    
+
     #first determine line equation
     x1,y1=l[0]
     x2,y2=l[1]
@@ -98,3 +98,27 @@ def rotation(c,x,t):
     l[0]=cos(t)*(x[0]-c[0])-sin(t)*(x[1]-c[1])+c[0]
     l[1]=sin(t)*(x[0]-c[0])+cos(t)*(x[1]-c[1])+c[1]
     return l
+
+def draw_arrow(c,l,index,win):
+    #edge intersection with vertex
+    inter1=line_circle(c,l,index)
+    c2=(inter1,15)
+
+    #translate the point 
+    inter2=line_circle(c2,l,index)
+
+    #rotate the point
+    rot1=rotation(inter1,inter2,pi/4)
+    rot2=rotation(inter1,inter2,-pi/4)
+
+    #drawing the arrow
+    """ pygame.draw.line(win,black,rot1,inter1,3)
+    pygame.draw.line(win,black,rot2,inter1,3)
+    pygame.draw.line(win,black,rot2,rot1,3) """
+
+    pygame.draw.polygon(win,black,(rot1,rot2,inter1))
+
+    
+
+    
+    
