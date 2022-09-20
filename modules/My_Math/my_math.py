@@ -99,7 +99,7 @@ def rotation(c,x,t):
     l[1]=sin(t)*(x[0]-c[0])+cos(t)*(x[1]-c[1])+c[1]
     return l
 
-def draw_arrow(c,l,index,win):
+def draw_arrow(c,l,index,win,color):
     #edge intersection with vertex
     inter1=line_circle(c,l,index)
     c2=(inter1,15)
@@ -112,11 +112,8 @@ def draw_arrow(c,l,index,win):
     rot2=rotation(inter1,inter2,-pi/4)
 
     #drawing the arrow
-    """ pygame.draw.line(win,black,rot1,inter1,3)
-    pygame.draw.line(win,black,rot2,inter1,3)
-    pygame.draw.line(win,black,rot2,rot1,3) """
-
-    pygame.draw.polygon(win,black,(rot1,rot2,inter1))
+    pygame.draw.polygon(win,color,(rot1,rot2,inter1))
+    
 
     
 

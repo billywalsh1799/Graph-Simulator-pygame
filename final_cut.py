@@ -158,7 +158,7 @@ def main():
              
         if E:
             for edge in E:
-                edge.draw_edge(win,directed.text=="Directed")
+                edge.draw_edge(win)
         
     
         if V:
@@ -239,9 +239,8 @@ def main():
                         if distance(vertex.position,pos[1])<=vertex.radius:
                             pos[1]=vertex.position
                             v2=vertex
-                            if v1!=v2:
-                                adding_edges(win,E,pos,v1,v2,W,junk,start)
-                                
+                            if v1!=v2 and v2 not in v1.neighbors:
+                                adding_edges(win,E,pos,v1,v2,W,junk,start,directed.text=="Directed")
                                 break
                     arrow_left = 0
                     
@@ -260,8 +259,8 @@ def main():
                     for vertex in V:
                         if distance(vertex.position,pos[1])<=vertex.radius:
                             v2=vertex
-                            if v2 in v1.neighbors:
-                                removing_edges(E,v1,v2,W,junk)
+                            if v2 in v1.neighbors :
+                                removing_edges(E,v1,v2,W,junk,directed.text=="Directed")
                             break
                     arrow_left = 0
                     pos=[(0,0),(0,0)]

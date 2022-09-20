@@ -2,12 +2,13 @@ import pygame
 from  modules.Graph.Edge.edge import edge
 from modules.Buttons.w_button import w_button
 
-def adding_edges(win,E,pos,v1,v2,W,junk,start):
+def adding_edges(win,E,pos,v1,v2,W,junk,start,directed):
     v1.neighbors.add(v2)
-    v2.neighbors.add(v1)
+    if not(directed):
+        v2.neighbors.add(v1)
     v2.deg+=1
     v1.deg+=1
-    e=edge(pos,(v1,v2))
+    e=edge(pos,(v1,v2),directed)
     E.add(e)
     if junk:
         x=junk.pop(0)
@@ -20,10 +21,10 @@ def adding_edges(win,E,pos,v1,v2,W,junk,start):
     
 
 
-def removing_edges(E,v1,v2,W,junk):
-
+def removing_edges(E,v1,v2,W,junk,directed):
     v1.neighbors.remove(v2)
-    v2.neighbors.remove(v1)
+    if not(directed):
+        v2.neighbors.remove(v1)
     v2.deg-=1
     v1.deg-=1
     for e in E:
