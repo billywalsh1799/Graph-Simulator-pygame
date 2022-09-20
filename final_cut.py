@@ -50,6 +50,8 @@ def main():
     add_e=button(1600,300,"add edge",win)
     rm_e=button(1600,400,"remove edge",win)
     algo=button(1600,500,"Algorithms",win)
+
+    directed=button(1600,20,"Directed",win)
     
     menu={add_v,rm_v,add_e,rm_e,algo}
 
@@ -141,10 +143,22 @@ def main():
                     algo_pressed=False
                 for e in W:
                     W[e].pressed=False
+        
+
+        #directed button test starts
+
+        if directed.draw_button() and not(E):
+            if directed.text=="Directed":
+                directed.set_text("Undirected")
+            else:
+                directed.set_text("Directed")
+
+
+        #directed button test ends
              
         if E:
             for edge in E:
-                edge.draw_edge(win)
+                edge.draw_edge(win,directed.text=="Directed")
         
     
         if V:
