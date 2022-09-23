@@ -30,6 +30,7 @@ def removing_vertices(V,E,W,junk):
                 del W[i]
                 E.remove(i)
             for j in vertex.neighbors:
-                j.neighbors.remove(vertex)
+                if vertex in j.neighbors:
+                    j.neighbors.remove(vertex)
             V.remove(vertex)
             break

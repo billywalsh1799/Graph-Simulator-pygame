@@ -24,28 +24,20 @@ def COLORSS(V,E,win):
         
         for i in range(len(l)):
             if colored[l[i]]==False : 
-                
-                
                 colored[l[i]]=num
                 l[i].make(colors[num])
                 l[i].draw_vertex(win)
                 pygame.display.update()
-
-                
                 delay(0.6)
                 
                 for j in range(i+1,len(l)):
                     if colored[l[j]]==False and (not coloredneigh(l[j],colored,num))  : 
-                        
                         colored[l[j]]=num
                         l[j].make(colors[num])
                         l[j].draw_vertex(win)
                         pygame.display.update()
-                        
                         delay(0.5)
-                        
                 num+=1
                 delay(2)
         for i in V :
             i.make(turquoise)
-        print('coloring done')
